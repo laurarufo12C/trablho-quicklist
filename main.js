@@ -1,4 +1,4 @@
-let itens = []
+let items = []
 
 function addItem() {
     const itemName = document.querySelector("#item").value
@@ -68,20 +68,20 @@ function removeItem(itemName) {
 function checkItem(itemName) {
     const item = items.find((item) => item.name === itemName)
     item.checked = !item.checked 
-    showItensList()
+    showItemsList()
 }
 
 function addHideWarningClass() {
     document.querySelector(".warning").classList.add("hide-warning")
 }
 
-function verifyLocalStorageItens() {
-    const localStorageItens = localStorage.getItem("items")
+function verifyLocalStorageItems() {
+    const localStorageItems = localStorage.getItem("items")
 
     if(localStorageItens){
-        items = JSON.parse(localStorageItens)
-        showItensList()
+        items = JSON.parse(localStorageItems)
+        showItemsList()
     }
 }
 
-verifyLocalStorageItens()
+verifyLocalStorageItems()
