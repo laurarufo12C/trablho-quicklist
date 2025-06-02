@@ -9,4 +9,6 @@ function addItem() {
     }
 
     itens.push(item)
+
+    document.querySelector("#item").value = ""
 }
