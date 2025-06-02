@@ -31,10 +31,20 @@ function showItensList(){
                     <label for="item-${index}">${item.name}</label>
                 </div>
 
-                <button>
+                <button onclick="removeItem('${item.name}')">
                     <img src="./assets-20250601T213559Z-1-001/assets/trash-icon.svg" alt="trash icon">
                 </button>
             </div>
         `
     })
+}
+
+function removeItem(itemName) {
+    const itemIndex = itens.findIndex((item) => item.name === itemName)
+
+    if(itemIndex !== -1){
+        itens.splice(itemIndex, 1)
+    }
+
+    showItensList()
 }
