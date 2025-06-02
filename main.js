@@ -13,18 +13,20 @@ function addItem() {
         checked: false
     }
 
-    itens.push(item)
+    items.push(item)
 
     document.querySelector("#item").value = ""
 
-    showItensList()
+    showItemsList()
 }
 
-function showItensList(){
+function showItemsList(){
     const sectionList = document.querySelector(".list")
     sectionList.textContent = ""
 
-    itens.map((item, index) => {
+    items.sort((itemA, itemB) => Number(itemA.checked) - Number(itemB.checked))
+
+    items.map((item, index) => {
         sectionList.innerHTML += `
             <div class="item">
                 <div>
@@ -47,7 +49,7 @@ function showItensList(){
 }
 
 function removeItem(itemName) {
-    const itemIndex = itens.findIndex((item) => item.name === itemName)
+    const itemIndex = items.findIndex((item) => item.name === itemName)
     const divWarning = document.querySelector(".warning")
 
     divWarning.classList.remove("hide-warning")
@@ -57,10 +59,10 @@ function removeItem(itemName) {
     }, 4000)
 
     if(itemIndex !== -1){
-        itens.splice(itemIndex, 1)
+        items.splice(itemIndex, 1)
     }
 
-    showItensList()
+    showItemsList()
 }
 
 function checkItem(itemName) {
