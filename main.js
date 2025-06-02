@@ -3,5 +3,10 @@ const itens = []
 function addItem() {
     const itemName = document.querySelector("#item").value
 
-    alert(itemName)
+    const item = {
+        naame: itemName,
+        checked: false
+    }
+
+    itens.push(item)
 }
